@@ -34,11 +34,12 @@ You should see at least two containers:
 To follow the app logs: 
 ```
 docker-compose logs -f todolist
+docker-compose logs -f mysql_db
 ```
 
 ### 4. Access the application
 Open in browser:
-http://localhost:8080
+http://localhost:8000
 
 ---
 
@@ -50,5 +51,5 @@ docker-compose down
 
 ### To remove volumes and data  
 ```
-data docker-compose down --volumes
+docker-compose down --volumes
 ```

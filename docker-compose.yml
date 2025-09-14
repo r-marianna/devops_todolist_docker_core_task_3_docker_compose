@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8000:8000"
     environment:
       - APP_ENV=Development
     networks:
@@ -18,18 +18,16 @@ services:
     restart: unless-stopped
 
   mysql:
-    image: mysql:latest
+    image: mysql:1.2
     build:
       context: .
       dockerfile: Dockerfile.mysql
-    container_name: mysql 
+    container_name: mysql
     ports:
-      - '3306:3306'
+      - "3306:3306"
     volumes:
       - db-data:/var/lib/mysql
     environment:
-      - DB_HOST=mysql
-      - DB_PORT=3306
       - MYSQL_ROOT_PASSWORD=1234
       - MYSQL_DATABASE=app_db
       - MYSQL_USER=app_user
@@ -37,5 +35,5 @@ services:
     networks:
      - db-data-net
 volumes:
-  db-data:
+  db-data: {}
   
