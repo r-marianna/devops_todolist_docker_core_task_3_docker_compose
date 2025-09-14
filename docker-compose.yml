@@ -18,7 +18,7 @@ services:
     restart: unless-stopped
 
   mysql:
-    image: mysql:1.2
+    image: mysql:latest
     build:
       context: .
       dockerfile: Dockerfile.mysql
@@ -28,10 +28,12 @@ services:
     volumes:
       - db-data:/var/lib/mysql
     environment:
-     - MYSQL_ROOT_PASSWORD=1234
-     - MYSQL_DATABASE=app_db
-     - MYSQL_USER=app_user
-     - MYSQL_PASSWORD=1234
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=app_db
+      - MYSQL_USER=app_user
+      - MYSQL_PASSWORD=1234
     networks:
      - db-data-net
 volumes:

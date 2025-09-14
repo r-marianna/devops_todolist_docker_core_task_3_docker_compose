@@ -15,31 +15,40 @@ This project runs a **Todolist application** with a **MySQL database** using Doc
 ## How to Run
 
 ### 1. Clone the repository
-```bash
-git clone r-marianna/devops_todolist_docker_core_task_3_docker_compose
+```
+git clone https://github.com/r-marianna/devops_todolist_docker_core_task_3_docker_compose.git
 cd devops_todolist_docker_core_task_3_docker_compose
 ```
 
 ### 2. Build and start containers
-```bash
+```
 docker-compose up -d --build
 ```
 ### 3. Verify containers are running
-```bash
+```
 docker ps
 ```
 You should see at least two containers:
 - `todolist`
 - `mysql`
+To follow the app logs: 
+```
+docker-compose logs -f todolist
+```
 
 ### 4. Access the application
 Open in browser:
-http://localhost:8000
+http://localhost:8080
 
 ---
 
 ## How to Stop
 ### Stop running containers (without removing data)
-```bash
+```
 docker-compose down
+```
+
+### To remove volumes and data  
+```
+data docker-compose down --volumes
 ```
